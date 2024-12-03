@@ -1,0 +1,10 @@
+/Lib
+/Scripts
+/Include
+/share
+/data
+pyvenv.cfg
+/clustered_faces
+/clustered_influencer_faces
+/deep_faces
+/faces
