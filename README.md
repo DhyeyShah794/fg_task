@@ -8,26 +8,26 @@ We need to build a system that can:
 # Solution v0
 
 1) We start by fetching the videos from the CSV file using `get_video_data.py` and store them in `data` folder.
-<br>
+<br></br>
 2) We then run `face_detection.py` to perform face detection using OpenCV. The extracted faces are filtered by confidence score and dimensions and stored in `faces` folder.
-<br>
+<br></br>
 3) Encodings for these images are generated using `encode_faces.py`. The command to generate encodings is `python encode_faces.py --dataset faces --encodings <encoding_file_name>.pickle --detection-method <hog/cnn>
 `. The `hog` method is faster for CPU-only devices, while `cnn` is slower but more accurate.
-<br>
+<br></br>
 4) Next, we run `face_clustering.py`, which loads this encodings file and uses DBSCAN to categorize the faces.
-<br>
+<br></br>
 5) Since DBSCAN can create multiple clusters for a single individual, we perform agglomerative clustering on top of it to narrow down the list of unique faces.
-<br>
+<br></br>
 6) For this, we generate all possible pairs from the clusters formed in DBSCAN, and select k=2 images from each cluster of the pair.
-<br>
+<br></br>
 7) We then compare the similarity between these 4 image combinations - `(c1_img1, c2_img1)`, `(c1_img2, c2_img1)`, `(c1_img1, c2_img2)`, `(c1_img2, c2_img2)` and store the average of these values as the distance between the two clusters.
-<br>
+<br></br>
 8) We then define a threshold value for the distance and start merging the cluster pairs in ascending order of distance. A threshold value of `0.37` was found to be appropriate.
-<br>
+<br></br>
 9) Once this is done, we build an inverted index of faces using `report_generation.py`, which maps each influencer to the set of videos they appear in, to support further calculations.
-<br>
+<br></br>
 10) For each influencer, we calculate the mean and standard deviation of their performance. (Note that influencers that appear only in a single video will have a standard deviation of 0)
-<br>
+<br></br>
 11) Finally, the face of each influencer along with their corresponding performance is displayed as a HTML report.
 
 # Challenges
