@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Influencer Performance Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function sortTable(n) {
+            const table = document.getElementById("clusterTable");
+            let switching = true;
+            let shouldSwitch;
+            let dir = "asc"; 
+            let switchcount = 0;
+            while (switching) {
+                switching = false;
+                const rows = table.rows;
+                for (let i = 1; i < rows.length - 1; i++) {
+                    shouldSwitch = false;
+                    let x = rows[i].getElementsByTagName("TD")[n];
+                    let y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir === "asc") {
+                        if (parseFloat(x.innerHTML) > parseFloat(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir === "desc") {
+                        if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount === 0 && dir === "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Influencer Performance Report</h1>
+    <table id="clusterTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Influencer Face</th>
+                <th onclick="sortTable(2)">Average Performance Score</th>
+                <th onclick="sortTable(3)">Standard Deviation</th>
+                <th>Video URLs</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>1</td>
+            <td><img src="merged_clusters\face_36\file_82_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.5304</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-604041931565137'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-604041931565137</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td><img src="merged_clusters\face_21\file_167_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.3765</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876239523982490'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876239523982490</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td><img src="merged_clusters\face_22\file_167_1_face_2.jpg" alt="Influencer Face"></td>
+            <td>1.3765</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876239523982490'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876239523982490</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td><img src="merged_clusters\face_14\file_137_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.2417</td>
+            <td>0.5461</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888183703182855'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888183703182855</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-881270063889884'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-881270063889884</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td><img src="merged_clusters\face_15\file_137_1_face_1.jpg" alt="Influencer Face"></td>
+            <td>1.2417</td>
+            <td>0.5461</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888183703182855'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888183703182855</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-881270063889884'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-881270063889884</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td><img src="merged_clusters\face_31\file_215_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.1477</td>
+            <td>0.3342</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-797024995612413'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-797024995612413</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-954832972830686'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-954832972830686</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-942779243913664'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-942779243913664</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td><img src="merged_clusters\face_24_face_28_face_9\file_104_1_face_2.jpg" alt="Influencer Face"></td>
+            <td>1.1351</td>
+            <td>0.5954</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-802443478544141'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-802443478544141</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992418235673669'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992418235673669</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-811606650922029'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-811606650922029</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817763467176157'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817763467176157</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8057957437624799'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8057957437624799</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td><img src="merged_clusters\face_7\file_104_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.1226</td>
+            <td>0.4732</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td><img src="merged_clusters\face_8\file_104_1_face_1.jpg" alt="Influencer Face"></td>
+            <td>1.1226</td>
+            <td>0.4732</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-925260332281638</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-902456848100089</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-909110383822260</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>10</td>
+            <td><img src="merged_clusters\face_29\file_198_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>1.0645</td>
+            <td>0.116</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1685108828975354'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1685108828975354</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-814072014151046'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-814072014151046</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>11</td>
+            <td><img src="merged_clusters\face_32\file_215_1_face_1.jpg" alt="Influencer Face"></td>
+            <td>1.0084</td>
+            <td>0.3307</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-797024995612413'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-797024995612413</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-954832972830686'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-954832972830686</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>12</td>
+            <td><img src="merged_clusters\face_10_face_35_face_11\file_11_1_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.9821</td>
+            <td>0.6777</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-904174908300812'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-904174908300812</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-963303392509872'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-963303392509872</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-808097524590260'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-808097524590260</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-987643572956494'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-987643572956494</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>13</td>
+            <td><img src="merged_clusters\face_20\file_146_0_face_2.jpg" alt="Influencer Face"></td>
+            <td>0.9705</td>
+            <td>0.5584</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883738210384679'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883738210384679</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1698824364241828'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1698824364241828</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>14</td>
+            <td><img src="merged_clusters\face_19\file_146_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.8629</td>
+            <td>0.55</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119706949586170'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119706949586170</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883738210384679'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883738210384679</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1698824364241828'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1698824364241828</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-793257836073148'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-793257836073148</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>15</td>
+            <td><img src="merged_clusters\face_0_face_2_face_5_face_3\file_102_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.8594</td>
+            <td>0.5725</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>16</td>
+            <td><img src="merged_clusters\face_1\file_102_0_face_1.jpg" alt="Influencer Face"></td>
+            <td>0.8594</td>
+            <td>0.5725</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>17</td>
+            <td><img src="merged_clusters\face_4_face_6\file_102_0_face_4.jpg" alt="Influencer Face"></td>
+            <td>0.8594</td>
+            <td>0.5725</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-813828049840959</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-796944101940903</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-680549530054789</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-427878012859864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6096104653784047</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-606237444463640</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-621266003076530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871075730546911</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8828692983838031</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-898402801287469</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889604775414234</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933773150951550</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899987727789409</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691857912087615</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-426644026275739</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886049645973007</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-817768845898837</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-690670309134450</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-682596103528135</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-618555366744628</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911172609864769</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-688887926060399</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-897680994566577</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896598988012982</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888056015719840</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-789715035654710</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-903060767715541</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-872188860590219</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-696006115320413</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-933913194646448</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-891684945300160</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-889375178765113</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-612426467555072</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-883246492824014</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-910958533691058</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-937410954343974</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-890005255637433</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-8816515918390519</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-679261516829908</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-620154813059921</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-896843165102015</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-930116227971248</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-691252805779835</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-992064161877405</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-695130362192250</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-1119272995406354</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-689771035910864</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-871037203883530</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-605272664726548</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-684264882912286</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-613152173490344</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686083626588321</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-899155277883965</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-958774641659407</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-907416560296782</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-693988272279384</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6046690562050296</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6172742522782221</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-686488653080244</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>18</td>
+            <td><img src="merged_clusters\face_18\file_141_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.8536</td>
+            <td>0.5494</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-819765763526762'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-819765763526762</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911926190614858'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-911926190614858</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-815391233916449'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-815391233916449</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-790055392972248'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-790055392972248</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886609482926268'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-886609482926268</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>19</td>
+            <td><img src="merged_clusters\face_33\file_251_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.7411</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6764280623620361'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6764280623620361</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>20</td>
+            <td><img src="merged_clusters\face_23\file_168_1_face_1.jpg" alt="Influencer Face"></td>
+            <td>0.6248</td>
+            <td>0.5383</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>21</td>
+            <td><img src="merged_clusters\face_25\file_168_1_face_4.jpg" alt="Influencer Face"></td>
+            <td>0.6248</td>
+            <td>0.5383</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>22</td>
+            <td><img src="merged_clusters\face_26\file_168_1_face_5.jpg" alt="Influencer Face"></td>
+            <td>0.6248</td>
+            <td>0.5383</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>23</td>
+            <td><img src="merged_clusters\face_16\file_138_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.5441</td>
+            <td>0.4359</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-965108935263649'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-965108935263649</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888062106715252'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888062106715252</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>24</td>
+            <td><img src="merged_clusters\face_17\file_138_0_face_1.jpg" alt="Influencer Face"></td>
+            <td>0.5441</td>
+            <td>0.4359</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-965108935263649'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-965108935263649</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-876121221160846</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-873317140849832</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888062106715252'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-888062106715252</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-932703258597949</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>25</td>
+            <td><img src="merged_clusters\face_27\file_170_0_face_1.jpg" alt="Influencer Face"></td>
+            <td>0.5277</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-874864704574925'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-874864704574925</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>26</td>
+            <td><img src="merged_clusters\face_30\file_207_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.3934</td>
+            <td>0.1398</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-806751788307038'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-806751788307038</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-429145826826558'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-429145826826558</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>27</td>
+            <td><img src="merged_clusters\face_34\file_253_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.2877</td>
+            <td>0.0</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6720438181324436'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-6720438181324436</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>28</td>
+            <td><img src="merged_clusters\face_12\file_122_0_face_0.jpg" alt="Influencer Face"></td>
+            <td>0.1566</td>
+            <td>0.0824</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-894559522288371'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-894559522288371</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-905739711170399'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-905739711170399</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>29</td>
+            <td><img src="merged_clusters\face_13\file_122_0_face_2.jpg" alt="Influencer Face"></td>
+            <td>0.1566</td>
+            <td>0.0824</td>
+            <td>
+                <ul>
+        <li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-894559522288371'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-894559522288371</a></li><li><a href='https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-905739711170399'>https://fgimagestorage.blob.core.windows.net/facebook-assets/hd-905739711170399</a></li>
+                </ul>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+</body>
+</html>

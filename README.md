@@ -7,28 +7,45 @@ We need to build a system that can:
 
 # Solution v0
 
-1) We start by fetching the videos from the CSV file and store them in `/data`.
-2) Initially, face detection is performed using OpenCV and they are then filtered based on image dimensions.
-3) Similar faces are first clustered using DBSCAN and then agglomerative clustering to identify unique influencers.
-4) Optionally, a second pass can be performed over the unclustered images for face detection using RetinaFace.
-4) Once this is done, we build an inverted index of faces i.e. map each influencer to the set of videos they appear in. Videos with no faces are ignored.
-5) There are some duplicate videos in there so we consider the version with maximum performance as it is, and multiply the other scores by some damping factor between 0 and 1.
-6) For each influencer, we calculate the mean, median, variance and standard deviation of their performance.
-7) We then assign each influencer a 'consistency score' based on these values, which ranges from 1-5 (1 = highly inconsistent, 5 = highly consistent) so that it can be easily interpreted by non-technical people.
-8) Finally, we display the face of each unique influencer along with their corresponding performance and consistency scores.
-9) A PDF/HTML report containing this table is automatically generated.
-
-# Solution v1
+1) We start by fetching the videos from the CSV file using `get_video_data.py` and store them in `data` folder.
+<br>
+2) We then run `face_detection.py` to perform face detection using OpenCV. The extracted faces are filtered by confidence score and dimensions and stored in `faces` folder.
+<br>
+3) Encodings for these images are generated using `encode_faces.py`. The command to generate encodings is `python encode_faces.py --dataset faces --encodings <encoding_file_name>.pickle --detection-method <hog/cnn>
+`. The `hog` method is faster for CPU-only devices, while `cnn` is slower but more accurate.
+<br>
+4) Next, we run `face_clustering.py`, which loads this encodings file and uses DBSCAN to categorize the faces.
+<br>
+5) Since DBSCAN can create multiple clusters for a single individual, we perform agglomerative clustering on top of it to narrow down the list of unique faces.
+<br>
+6) For this, we generate all possible pairs from the clusters formed in DBSCAN, and select k=2 images from each cluster of the pair.
+<br>
+7) We then compare the similarity between these 4 image combinations - `(c1_img1, c2_img1)`, `(c1_img2, c2_img1)`, `(c1_img1, c2_img2)`, `(c1_img2, c2_img2)` and store the average of these values as the distance between the two clusters.
+<br>
+8) We then define a threshold value for the distance and start merging the cluster pairs in ascending order of distance. A threshold value of `0.37` was found to be appropriate.
+<br>
+9) Once this is done, we build an inverted index of faces using `report_generation.py`, which maps each influencer to the set of videos they appear in, to support further calculations.
+<br>
+10) For each influencer, we calculate the mean and standard deviation of their performance. (Note that influencers that appear only in a single video will have a standard deviation of 0)
+<br>
+11) Finally, the face of each influencer along with their corresponding performance is displayed as a HTML report.
 
 # Challenges
 
-1) Dealing with false positives
-2) Segregating real influencer faces from photographic faces
+1) Dealing with false positives while detecting faces
+2) Some faces remain unclustered if their count is less than `min_samples` parameter for DBSCAN 
 3) Clustering faces (DBSCAN created multiple clusters for the same person)
+4) More sophisticated algorithms needed to improve clustering performance.
 
 # Brownie points
 
-1) End-to-end pipeline with simple one click GUI
-2) 2-pass filter
-3) Ranking each influencer
-4) Listing their attributes (gender, age, similarity, etc.)
+1) Good face detection performance, segregates most real faces from photographic faces.
+2) Double clustering (DBSCAN + Agglomerative)
+3) Automatic HTML report generation that displays the influencer's face, performance and the video URLs they are seen in.
+4) This method can scale to handle more videos with an increasing number of unique influencers across them.
+
+# Results
+
+<img src="result.jpg">
+
+To view the entire report, view `influencer_report.html` or `influencer_report.pdf` in this repo.

@@ -33,16 +33,13 @@ def extract_faces_from_video(video_path, output_dir, frame_skip=30):
 
             for i in range(detections.shape[2]):
                 confidence = detections[0, 0, i, 2]
-                if confidence > 0.85:  # Confidence threshold
-                    # Get the bounding box of the face
+                if confidence > 0.85:
                     box = detections[0, 0, i, 3:7] * [w, h, w, h]
                     (x1, y1, x2, y2) = box.astype("int")
 
-                    # Extract the face region
                     face = frame[max(0, y1):min(h, y2), max(0, x1):min(w, x2)]
                     face_height, face_width = face.shape[:2]
 
-                    # Only save the face if its dimensions are not both less than 80
                     if face_height >= 85 or face_width >= 85:
                         face_path = os.path.join(output_dir, f"{video_name}_face_{face_count}.jpg")
                         cv2.imwrite(face_path, face)
@@ -53,7 +50,6 @@ def extract_faces_from_video(video_path, output_dir, frame_skip=30):
     cap.release()
 
 
-# Process all videos in the input folder
 for video_file in os.listdir(input_folder):
     if video_file.endswith((".mp4")):
         video_path = os.path.join(input_folder, video_file)
